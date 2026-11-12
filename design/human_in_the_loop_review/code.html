@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"status-warning":"#FFC542","inverse-surface":"#e6dff7","surface-raised":"#221E36","text-primary":"#F7F4FD","on-tertiary-fixed":"#231b00","tertiary":"#eac33f","on-primary":"#33118c","on-error-container":"#ffdad6","surface-container-lowest":"#0f0c1c","on-secondary-container":"#b8b1d0","secondary-container":"#48435e","secondary-fixed":"#e6deff","error":"#ffb4ab","surface-highlight":"#2F2B4A","surface-container-high":"#2b2839","on-tertiary-container":"#4e3e00","status-danger":"#FF5757","brand-accent":"#AB9FF2","outline":"#938e9e","surface-bright":"#3a3749","on-secondary-fixed-variant":"#48435e","on-primary-fixed-variant":"#4a31a2","surface":"#141121","error-container":"#93000a","status-success":"#3DD598","surface-dim":"#141121","surface-container":"#211d2e","tertiary-fixed-dim":"#e9c33f","on-primary-container":"#300c89","surface-container-highest":"#363244","surface-container-low":"#1c192a","on-primary-fixed":"#1d0061","inverse-primary":"#624bbc","surface-tint":"#cbbeff","background":"#141121","outline-variant":"#484552","text-muted":"#6E668B","secondary-fixed-dim":"#c9c2e2","surface-deep":"#151224","primary-fixed-dim":"#cbbeff","tertiary-container":"#cca823","secondary":"#c9c2e2","on-secondary":"#312d46","surface-variant":"#363244","on-tertiary":"#3c2f00","on-background":"#e6dff7","primary-container":"#9a84f8","on-surface-variant":"#cac4d5","text-secondary":"#AFA8CE","on-error":"#690005","on-surface":"#e6dff7","primary-fixed":"#e6deff","tertiary-fixed":"#ffe082","on-secondary-fixed":"#1c1830","inverse-on-surface":"#322e40","canvas-base":"#0B0914","primary":"#cbbeff","on-tertiary-fixed-variant":"#564500"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","margin-sm":"1.25rem","space-md":"1rem","gutter":"1.5rem","gutter-sm":"1rem","space-sm":"0.5rem","space-2xl":"4rem","margin":"2rem","space-lg":"1.5rem","space-xl":"2.5rem"},"fontFamily":{"headline-lg-mobile":["Sora"],"display-hero":["Sora"],"label-md":["DM Sans"],"body-lg":["DM Sans"],"headline-sm":["Sora"],"body-md":["DM Sans"],"headline-md":["Sora"],"mono-data":["JetBrains Mono"],"display-hero-mobile":["Sora"],"label-sm":["DM Sans"],"mono-sm":["JetBrains Mono"],"headline-lg":["Sora"],"body-sm":["DM Sans"]},"fontSize":{"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-data":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"mono-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-canvas-base font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_16px_rgba(11,9,20,0.6)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg min-w-max"><div class="flex items-center gap-space-sm"><img alt="Northgate ChaseZero Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV9hc8zw6M0AI53s86roeSJ1uXx4lSGhj-8B8CHWhGgxwOWHUEL-J0iTZWm8z7A6Mtfwh40ksVaLy-XVK5rQkxTuO4WxTMK7EMi1lWCtrfw4iLvzdxUVtVhuPTAneot-dRy7XZxQBkT4Ak6mHBmfLrSGHt_B37uwg4d0LtjE7wNV8O8fz-D_9amJpYSfaenO0cYCvjPcsPi1MkHfValC9lG9LUaCHw1xm4R0T1fccc"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-text-primary">Northgate <span class="text-primary">ChaseZero</span></span><span class="font-mono-sm text-mono-sm text-text-muted">ENTERPRISE KYC PLATFORM</span></div></div><div class="hidden xl:flex items-center gap-space-sm px-space-sm py-space-xs rounded-full bg-surface-raised/70"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-success opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-success"></span></span><span class="font-mono-data text-mono-data text-text-secondary">Agentic Engine Active • SLA Monitor Live</span></div></div><div class="flex-1 max-w-xl mx-auto hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-text-muted pointer-events-none">search</span><input class="w-full h-11 pl-11 pr-space-md rounded-full bg-surface-deep text-text-primary placeholder:text-text-muted font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary-container/40 transition-all" placeholder="Search Corporate Entities, LEIs, CIKs, or Case IDs..." type="text"/></div></div><div class="flex items-center gap-space-md min-w-max"><button class="relative p-space-sm rounded-full bg-surface-raised/60 hover:bg-surface-raised text-on-surface transition-colors"><span class="material-symbols-outlined text-text-secondary">notifications</span><span class="absolute top-1 right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-status-danger font-mono-sm text-mono-sm text-on-error font-bold leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-sm py-space-xs pr-space-md rounded-full bg-surface-deep/80"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoxKz8U4OCnJ5SB48TiLMVzy_8NRWfNe_6npTnI3FBP5kTNO4ZEhuuGQyHdjtm3Ym1l3DO29LJnof5qbFrUjQOh56M7_w0HGfo5PS0zVC8H4UBDZgvgMK96w4HYxICN0G_JXPUkpLum4Vj8Ctyp4JYNoDLF34VmVwpyKCEPfFtWcSPY0KGfomeEAQKDZxZx6GzjbWZKoD9Pg_-qIjXz87dRdq35kTavvcemvsu0Prk"/><div class="hidden sm:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-text-muted">VP Corporate Banking</span></div></div></div></div><div class="w-full bg-surface-raised/90 backdrop-blur-md px-margin py-space-xs flex items-center justify-center gap-space-sm"><span class="material-symbols-outlined text-brand-accent text-sm">verified_user</span><span class="font-label-sm text-label-sm text-text-secondary text-center">Human-in-the-loop Protocol: AI drafts require Relationship Manager authorization before transmission.</span></div></header><aside class="fixed left-0 top-28 h-[calc(100vh-7rem)] w-72 bg-surface-container-lowest/80 backdrop-blur-xl z-40 flex flex-col justify-between pt-space-lg pb-space-lg"><div class="flex flex-col gap-space-md px-space-md"><div class="px-space-md text-text-muted font-mono-sm text-mono-sm tracking-wider uppercase">Autonomous Workflows</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-raised text-primary font-bold shadow-[0_0_16px_rgba(154,132,248,0.15)]"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="orchestrator-inbox" href="#"><span class="material-symbols-outlined text-brand-accent">inbox</span><span>Orchestrator Inbox</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="case-tracker-&amp;-audit" href="#"><span class="material-symbols-outlined text-brand-accent">policy</span><span>Case Tracker &amp; Audit</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="ai-drafting-agent" href="#"><span class="material-symbols-outlined text-brand-accent">smart_toy</span><span>AI Drafting Agent</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="critic-compliance-qa" href="#"><span class="material-symbols-outlined text-brand-accent">fact_check</span><span>Critic Compliance QA</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl transition-all bg-surface-raised text-primary font-bold shadow-[0_0_16px_rgba(154,132,248,0.15)]" data-path="human-in-the-loop-review" href="#"><span class="material-symbols-outlined text-brand-accent">rate_review</span><span>Human-in-the-Loop Review</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="executive-success-dashboard" href="#"><span class="material-symbols-outlined text-brand-accent">insights</span><span>Executive Success Dashboard</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-md rounded-xl bg-surface-deep/90 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-primary">SLA Buffer Health</span><span class="font-mono-data text-mono-data text-status-success">98.4%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-status-success rounded-full w-[98%]"></div></div><span class="font-mono-sm text-mono-sm text-text-muted">42 Autonomous Chases Executing</span></div></div></aside><div class="pl-72"><main class="relative w-full pt-28 px-margin pb-space-2xl bg-canvas-base"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-lg w-full max-w-[1400px] mx-auto pb-space-2xl">
+<!-- Top Metadata Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-raised font-mono-sm text-mono-sm text-brand-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+            STAGE 5: RM DISPATCH GATEWAY
+          </span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Case #NCZ-2024-8841</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Human-in-the-Loop Review &amp; Authorization</h1>
+<p class="font-body-md text-body-md text-text-secondary">
+          Apex Global Commodities Ltd <span class="text-text-muted">•</span> Legal Entity ID: <span class="font-mono-data text-mono-data text-primary">5493006MHB84US08AX04</span>
+</p>
+</div>
+<!-- Action status & RM badge -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-container-low shadow-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of a professional corporate banking Relationship Manager Sarah Jenkins wearing dark navy blazer against refined office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANL5V0nON1VuMUiY1Gvg7lhixgS0IIyBOTlv8yJlaMDafXiHbQA8ufNhLN87i7cawlHyCgyiFycYywneLEgs0K0YtEhp8x-NxKsQU46KDpmUm-P5wGb_9pN8oQxcoXx8w17coEFGCoQnqKWmDw2D1pej-UzYaABo4iJwG9D-1nzNN94gk2Uwjqv_HSgVHp9C5XrIvUGhOq6ZmWUxXRS66Iju8zHEjWDtCbAqqmOQFe"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-status-success ring-2 ring-surface-container-low"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary">Sarah Jenkins</span>
+<span class="font-mono-sm text-mono-sm text-brand-accent">RM Sign-off Required</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Governance Banner (Zero Auto-Sending Principle) -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-surface-raised via-surface-container to-surface-raised p-space-md shadow-md">
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-primary/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-start md:items-center justify-between gap-space-md relative z-10">
+<div class="flex items-start gap-space-md">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-status-warning/15 flex items-center justify-center text-status-warning mt-0.5 md:mt-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-md text-label-md text-text-primary">Human Accountability Principle</span>
+<span class="px-2 py-0.5 rounded-full bg-status-warning/20 text-status-warning font-mono-sm text-mono-sm uppercase tracking-wider">Zero Auto-Send Mandate</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary max-w-4xl">
+              ChaseZero never dispatches external client communications autonomously. You are reviewing, customizing, and transmitting this outreach as the designated Relationship Manager under Northgate Conduct Risk Guidelines.
+            </p>
+</div>
+</div>
+<div class="hidden lg:flex flex-col items-end gap-1 flex-shrink-0">
+<span class="font-mono-sm text-mono-sm text-text-muted">Policy Code: NCR-FIN-66A</span>
+<span class="font-mono-data text-mono-data text-status-success flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Compliant Protocol
+          </span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Bento Layout: Composer (8 cols) + Side Inspector (4 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Composer Pane (Left - 8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="rounded-xl bg-surface-container-low shadow-xl overflow-hidden flex flex-col">
+<!-- Composer Header & Recipient Meta -->
+<div class="p-space-lg bg-surface-deep flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-brand-accent text-lg">mail</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Outbound Chase Dispatcher</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2.5 py-1 rounded-full bg-surface-raised font-mono-sm text-mono-sm text-text-secondary flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  Active RM Draft
+                </span>
+</div>
+</div>
+<!-- Recipient: TO -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest/70 px-space-md py-space-sm rounded-lg">
+<span class="font-mono-sm text-mono-sm text-text-muted w-16">To:</span>
+<div class="flex-1 flex items-center flex-wrap gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-raised text-text-primary font-label-sm text-label-sm">
+<img class="w-4 h-4 rounded-full object-cover" data-alt="Avatar headshot of Alistair Finch Chief Risk Officer at Apex Global Commodities" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtKVK-ftvxWHTFPQs12Tp5oEhYrTzP4-aJ3DooJUZVx9SEHT06fll5iRKM8hWouxGSUMPhSc3E4BJAevgDfJLSr-GLxUIOkyWtXlvK2enquTqtGAGTk21G61ox4ZOl8lfvzo06jf5sU-OrUhv0Sn0K4BRUUa3YxGRA0oWc9UKeu-6XdT8EONaP5SzZ58FXeRLElUC50DDPIpRAmwNVtEtzqPdLR0x3LP4bAia7pspg"/>
+                  Alistair Finch
+                  <span class="font-mono-sm text-mono-sm text-text-muted">&lt;a.finch@apexcommodities.co.uk&gt;</span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs text-text-muted">
+<button class="font-label-sm text-label-sm hover:text-text-primary px-space-xs py-0.5 rounded transition-colors" id="cc-btn" type="button">+ CC / BCC</button>
+</div>
+</div>
+<!-- Recipient: CC (Expandable) -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest/70 px-space-md py-space-sm rounded-lg" id="cc-row">
+<span class="font-mono-sm text-mono-sm text-text-muted w-16">CC:</span>
+<div class="flex-1 flex items-center flex-wrap gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-container-high text-text-secondary font-label-sm text-label-sm">
+                  Marcus Vance (KYC Analyst)
+                  <span class="material-symbols-outlined text-xs hover:text-status-danger cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-container-high text-text-secondary font-label-sm text-label-sm">
+                  legal-approvals@northgate.com
+                  <span class="material-symbols-outlined text-xs hover:text-status-danger cursor-pointer">close</span>
+</span>
+<input class="bg-transparent text-text-primary placeholder:text-text-muted font-body-sm text-body-sm focus:outline-none flex-1 min-w-[140px]" placeholder="Add additional address..." type="text"/>
+</div>
+</div>
+<!-- Subject Line -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest/70 px-space-md py-space-sm rounded-lg">
+<span class="font-mono-sm text-mono-sm text-text-muted w-16">Subject:</span>
+<input class="flex-1 bg-transparent font-label-md text-label-md text-text-primary focus:outline-none" type="text" value="Action Required: Finalizing KYC Documentation for Apex Global Commodities (Ref #NCZ-8841)"/>
+</div>
+<!-- Attached Missing Items Capsule -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-raised/70">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">attachment</span>
+<span class="font-label-sm text-label-sm text-text-primary">2 Missing Items Linked (Secure Vault Uplink):</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-surface-highlight text-brand-accent font-mono-sm text-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">description</span> UBO Tier-2 Org Chart
+                  </span>
+<span class="px-2 py-0.5 rounded bg-surface-highlight text-brand-accent font-mono-sm text-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">gavel</span> Sovereign Trust Deed 2021
+                  </span>
+</div>
+</div>
+<span class="font-mono-sm text-mono-sm text-status-success flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+                Encrypted Uplink Ready
+              </span>
+</div>
+</div>
+<!-- Rich Text Toolbar -->
+<div class="px-space-lg py-space-sm bg-surface-container flex items-center justify-between gap-space-sm overflow-x-auto">
+<div class="flex items-center gap-1 text-text-secondary">
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Bold" type="button"><span class="material-symbols-outlined text-base">format_bold</span></button>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Italic" type="button"><span class="material-symbols-outlined text-base">format_italic</span></button>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Underline" type="button"><span class="material-symbols-outlined text-base">format_underlined</span></button>
+<span class="w-px h-4 bg-outline-variant/40 mx-1"></span>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Bullet List" type="button"><span class="material-symbols-outlined text-base">format_list_bulleted</span></button>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Numbered List" type="button"><span class="material-symbols-outlined text-base">format_list_numbered</span></button>
+<span class="w-px h-4 bg-outline-variant/40 mx-1"></span>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Insert Link" type="button"><span class="material-symbols-outlined text-base">link</span></button>
+<button class="p-1.5 rounded hover:bg-surface-highlight hover:text-text-primary transition-colors" title="Insert Quote" type="button"><span class="material-symbols-outlined text-base">format_quote</span></button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-mono-sm text-mono-sm text-text-muted" id="edit-indicator">All edits autosaved to draft buffer</span>
+<button class="px-2.5 py-1 rounded bg-surface-highlight hover:bg-surface-bright text-text-secondary hover:text-text-primary font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="resetToAiBaseline()" type="button">
+<span class="material-symbols-outlined text-xs">restart_alt</span> Reset to Critic Draft
+              </button>
+</div>
+</div>
+<!-- Interactive ContentEditable Editor Area -->
+<div class="relative p-space-lg bg-surface-deep/40 min-h-[360px] flex flex-col">
+<div class="w-full flex-1 outline-none text-text-primary font-body-lg text-body-lg leading-relaxed focus:ring-1 focus:ring-primary-container/40 p-space-md rounded-xl transition-all" contenteditable="true" id="email-editor">
+<p class="mb-4">Dear Alistair,</p>
+<p class="mb-4">
+                Thank you for the productive discussion during our treasury review on Monday. I am writing to ensure we finalize the remaining onboarding requirements for Apex Global Commodities’ £45,000,000 corporate FX facility ahead of your upcoming Friday executive meeting.
+              </p>
+<p class="mb-4">
+                Our onboarding operations unit has completed 92% of the requisite regulatory clearances. To wrap up the file before market close on Thursday, could your legal secretariat kindly upload the following two outstanding items via our encrypted client portal:
+              </p>
+<ul class="list-disc pl-6 mb-4 space-y-2 text-primary">
+<li><span class="text-text-primary font-medium">UBO Tier-2 Structure Document:</span> <span class="text-text-secondary">Depicting ultimate beneficial ownership above the 10% threshold for Apex Guernsey Holdings.</span></li>
+<li><span class="text-text-primary font-medium">Sovereign Trust Deed (2021 Update):</span> <span class="text-text-secondary">Certified copy reflecting the current authorized signatories and trustee resolution.</span></li>
+</ul>
+<p class="mb-4">
+                You can securely drop these into your personalized KYC vault here: <span class="text-primary underline cursor-pointer">https://portal.northgatebank.com/secure-vault/apex-8841</span>
+</p>
+<p class="mb-4">
+                Please let me know if a quick 10-minute touchpoint this afternoon would be helpful to clear any questions with our lead compliance specialist.
+              </p>
+<p class="mb-1 text-text-secondary">Warm regards,</p>
+<p class="font-headline-sm text-headline-sm text-text-primary">Sarah Jenkins</p>
+<p class="font-mono-sm text-mono-sm text-brand-accent">Vice President, Corporate Banking &amp; Commodity Trade Finance</p>
+<p class="font-body-sm text-body-sm text-text-muted">Northgate Financial Corporation • Direct: +44 20 7946 0912</p>
+</div>
+<!-- Floating Editor Cursor Indicator / Tone Notification -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between font-mono-sm text-mono-sm text-text-muted">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-2 w-2 rounded-full bg-brand-accent"></span>
+<span>RM Sarah Jenkins (Authenticated Gateway: Microsoft 365 Enterprise)</span>
+</div>
+<div>Words: <span class="text-text-primary" id="word-count">218</span> • Characters: <span class="text-text-primary" id="char-count">1,482</span></div>
+</div>
+</div>
+</div>
+<!-- RM Audit Assurance Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-raised flex items-center justify-center text-status-success">
+<span class="material-symbols-outlined text-base">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary">E2E Cryptographic Audit Trail</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">SHA-256 Draft Hash: 9f8a3c8e...d2e1 (Stored on Northgate Immutable Ledger)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-status-success/10 text-status-success font-mono-sm text-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Pre-Flight Check: Passed
+            </span>
+</div>
+</div>
+</div>
+<!-- Right Side Inspector Panel (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Client Dossier Summary Card -->
+<div class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-brand-accent text-lg">corporate_fare</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Client Dossier</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-mono-sm text-mono-sm">High-Touch Tier</span>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-deep flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-text-muted">Projected Annual Facility</span>
+<span class="font-headline-sm text-headline-sm text-status-success font-mono-data">£45,000,000</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-deep flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-text-muted">Relationship Longevity</span>
+<span class="font-label-md text-label-md text-text-primary">5 Years (Tier 1 Commodity Client)</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-deep flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-text-muted">Current KYC Velocity</span>
+<span class="font-mono-data text-mono-data text-status-warning">SLA Threshold: 18h Rem.</span>
+</div>
+</div>
+<!-- Relationship Notes for Sarah -->
+<div class="p-space-md rounded-lg bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm">sticky_note_2</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">RM Private Intelligence</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-primary italic leading-relaxed">
+              “Alistair prefers communication before 11:00 AM London time. Mentioned upcoming board ratification this Friday; ensure he knows this protects their execution schedule.”
+            </p>
+<div class="pt-1 flex items-center justify-between text-text-muted font-mono-sm text-mono-sm">
+<span>Author: S. Jenkins</span>
+<span>Updated 3 days ago</span>
+</div>
+</div>
+</div>
+<!-- Quick Tone Adjusters (One-Click RM Refinement) -->
+<div class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-lg">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Quick Tone Adjusters</h2>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted">Assisted Tuning</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Apply automated RM voice modifications while retaining all mandatory compliance and legal clauses:
+          </p>
+<div class="flex flex-col gap-space-sm">
+<button class="w-full text-left p-space-sm rounded-xl bg-surface-deep hover:bg-surface-raised transition-all flex items-center justify-between group" onclick="applyToneCasual()" type="button">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high group-hover:bg-primary group-hover:text-canvas-base flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">forum</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-primary transition-colors">Slightly More Casual</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Softens executive phrasing</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary text-sm transition-transform group-hover:translate-x-1">chevron_right</span>
+</button>
+<button class="w-full text-left p-space-sm rounded-xl bg-surface-deep hover:bg-surface-raised transition-all flex items-center justify-between group" onclick="applyToneUrgent()" type="button">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high group-hover:bg-status-warning group-hover:text-canvas-base flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">alarm</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-status-warning transition-colors">More Urgent / Friday Focus</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Emphasizes board cut-off</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-status-warning text-sm transition-transform group-hover:translate-x-1">chevron_right</span>
+</button>
+<button class="w-full text-left p-space-sm rounded-xl bg-surface-deep hover:bg-surface-raised transition-all flex items-center justify-between group" onclick="applyAddMeeting()" type="button">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high group-hover:bg-brand-accent group-hover:text-canvas-base flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">calendar_add_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary group-hover:text-brand-accent transition-colors">Add Direct Calendar Link</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Inserts 15-min RM booking slot</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-brand-accent text-sm transition-transform group-hover:translate-x-1">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Compliance Critic Stamp -->
+<div class="rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-status-success text-lg">fact_check</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Critic QA Audit Stamp</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-status-success/20 text-status-success font-mono-data text-mono-data">99/100</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-deep">
+<!-- Inline Mini Donut SVG for Quality Score -->
+<div class="w-12 h-12 flex-shrink-0 relative flex items-center justify-center">
+<svg class="w-12 h-12 transform -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-surface-container-high" cx="18" cy="18" fill="none" r="15.915" stroke-width="3"></circle>
+<circle class="stroke-status-success" cx="18" cy="18" fill="none" r="15.915" stroke-dasharray="99, 1" stroke-dashoffset="0" stroke-width="3"></circle>
+</svg>
+<span class="absolute font-mono-data text-mono-sm font-bold text-text-primary">99</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-text-primary">Critic QA Approved</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Cleared by Autonomous Rule-Engine at 09:14 EST</span>
+</div>
+</div>
+<div class="space-y-1.5 font-mono-sm text-mono-sm text-text-secondary">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Tone &amp; Courtesy</span>
+<span class="text-text-primary">100% Pass</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Regulatory Precision</span>
+<span class="text-text-primary">100% Pass</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Anti-Phishing Guard</span>
+<span class="text-text-primary">100% Clean</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky / Bottom Dispatch Action Bar (The Critical Human Gate) -->
+<div class="sticky bottom-4 z-40 w-full mt-space-md">
+<div class="rounded-2xl bg-surface-raised/95 backdrop-blur-2xl p-space-lg shadow-[0_20px_50px_rgba(11,9,20,0.8)]">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<!-- Left Actions: Secondary templates / discard -->
+<div class="flex items-center gap-space-md w-full lg:w-auto justify-start">
+<button class="px-space-md py-space-sm rounded-full bg-surface-deep hover:bg-surface-highlight text-text-secondary hover:text-text-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm">bookmark_add</span>
+              Save as RM Template
+            </button>
+<button class="px-space-md py-space-sm rounded-full bg-surface-deep hover:bg-status-danger/20 text-status-danger font-label-md text-label-md transition-colors flex items-center gap-1.5" onclick="confirmDiscard()" type="button">
+<span class="material-symbols-outlined text-sm">delete</span>
+              Discard Draft
+            </button>
+</div>
+<!-- Center: Analyst Notification Toggle -->
+<div class="flex items-center gap-space-md bg-surface-deep px-space-md py-space-sm rounded-full">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0 cursor-pointer accent-[#9A84F8]" id="notify-analyst" type="checkbox"/>
+<span class="font-label-md text-label-md text-text-primary">Notify Case Analyst Marcus Vance on send</span>
+</label>
+<span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-status-success"></span>
+<span class="hidden sm:inline-block font-mono-sm text-mono-sm text-text-muted">Instant internal push</span>
+</div>
+<!-- Right: The Primary Send CTA (Accountability Apex) -->
+<div class="flex flex-col items-center lg:items-end gap-1.5 w-full lg:w-auto">
+<button class="w-full sm:w-auto px-space-xl py-space-md rounded-full bg-primary-container hover:bg-brand-accent text-canvas-base font-headline-sm text-headline-sm font-bold shadow-[0_0_30px_rgba(154,132,248,0.4)] hover:shadow-[0_0_40px_rgba(154,132,248,0.6)] transform active:scale-98 transition-all flex items-center justify-center gap-space-md group" id="dispatch-cta-btn" onclick="executeRMDispatch()" type="button">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1" style="font-variation-settings: 'FILL' 1;">send</span>
+<span>Approve &amp; Send Chase Email</span>
+<span class="w-px h-5 bg-canvas-base/30"></span>
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</button>
+<span class="font-mono-sm text-mono-sm text-text-muted text-center lg:text-right max-w-md">
+              Clicking triggers dispatch via Sarah Jenkins’ authenticated Outlook gateway. Logged to CRM &amp; Audit trail.
+            </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dispatch Confirmation Modal Backdrop (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-canvas-base/80 backdrop-blur-md hidden items-center justify-center p-space-md" id="dispatch-success-modal">
+<div class="w-full max-w-lg rounded-2xl bg-surface-raised p-space-xl shadow-2xl flex flex-col items-center text-center gap-space-md transform scale-95 transition-all">
+<div class="w-16 h-16 rounded-full bg-status-success/20 text-status-success flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">mark_email_read</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-lg text-headline-lg text-text-primary">Communication Dispatched</span>
+<span class="font-label-md text-label-md text-brand-accent font-mono-data">Tracking ID: #CHASE-2024-8841-DISPATCH-OK</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary">
+          Outbound email securely transmitted via Sarah Jenkins’ authenticated corporate gateway. Alistair Finch notified. Missing item upload tracker activated with a 48h watchdog window.
+        </p>
+<div class="w-full p-space-md rounded-xl bg-surface-deep flex flex-col gap-1 text-left font-mono-sm text-mono-sm">
+<div class="flex justify-between text-text-muted">
+<span>Recipient:</span> <span class="text-text-primary">a.finch@apexcommodities.co.uk</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span>Audit Hash:</span> <span class="text-text-primary">8ac7692...f7a4</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span>Internal Notification:</span> <span class="text-status-success">Marcus Vance (Analyst) Notified</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md w-full pt-space-xs">
+<button class="w-full py-space-sm rounded-full bg-primary text-canvas-base font-label-md text-label-md font-bold" onclick="closeModal()" type="button">
+            Return to Case Tracker
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic metrics & character count
+  function updateCounts() {
+    const editor = document.getElementById('email-editor');
+    if (!editor) return;
+    const text = editor.innerText || editor.textContent;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const chars = text.length;
+    const wordEl = document.getElementById('word-count');
+    const charEl = document.getElementById('char-count');
+    if (wordEl) wordEl.innerText = words;
+    if (charEl) charEl.innerText = chars;
+  }
+
+  const editorEl = document.getElementById('email-editor');
+  if (editorEl) {
+    editorEl.addEventListener('input', () => {
+      updateCounts();
+      const indicator = document.getElementById('edit-indicator');
+      if (indicator) {
+        indicator.innerText = 'Unsaved RM customizations...';
+        indicator.classList.add('text-status-warning');
+        setTimeout(() => {
+          indicator.innerText = 'All edits autosaved to draft buffer';
+          indicator.classList.remove('text-status-warning');
+        }, 1200);
+      }
+    });
+  }
+
+  // Tone Adjuster 1: Casual
+  function applyToneCasual() {
+    const editor = document.getElementById('email-editor');
+    if (!editor) return;
+    editor.innerHTML = `
+      <p class="mb-4">Hi Alistair,</p>
+      <p class="mb-4">Hope you're having a smooth week. Following our chat on Monday, I wanted to quickly touch base so we can get Apex's £45M FX facility fully unlocked ahead of your Friday board session.</p>
+      <p class="mb-4">Our compliance team is almost at the finish line (92% complete). We just need two final pieces to seal the file:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-primary">
+        <li><span class="text-text-primary font-medium">UBO Tier-2 Org Structure</span> <span class="text-text-secondary">(for entities holding &gt;10% in Apex Guernsey Holdings).</span></li>
+        <li><span class="text-text-primary font-medium">Sovereign Trust Deed (2021 update)</span> <span class="text-text-secondary">with active trustee signatures.</span></li>
+      </ul>
+      <p class="mb-4">You can drop them straight into your secure link whenever handy: <span class="text-primary underline cursor-pointer">https://portal.northgatebank.com/secure-vault/apex-8841</span></p>
+      <p class="mb-4">Give me a shout if you need any assistance clearing these.</p>
+      <p class="mb-1 text-text-secondary">Best,</p>
+      <p class="font-headline-sm text-headline-sm text-text-primary">Sarah Jenkins</p>
+      <p class="font-mono-sm text-mono-sm text-brand-accent">Vice President, Corporate Banking</p>
+    `;
+    updateCounts();
+  }
+
+  // Tone Adjuster 2: Urgent
+  function applyToneUrgent() {
+    const editor = document.getElementById('email-editor');
+    if (!editor) return;
+    editor.innerHTML = `
+      <p class="mb-4">Dear Alistair,</p>
+      <p class="mb-4"><strong class="text-status-warning">Time-Sensitive Update:</strong> In order to guarantee the activation of Apex Global Commodities’ £45,000,000 FX facility prior to Friday's board meeting, our compliance desk requires the final documentation packet by <strong>Thursday 14:00 London time</strong>.</p>
+      <p class="mb-4">We are standing by to expedite immediate sign-off as soon as these two missing items are uploaded:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-primary">
+        <li><span class="text-text-primary font-medium">UBO Tier-2 Org Chart:</span> <span class="text-text-secondary">Mandatory regulatory requirement for Apex Guernsey Holdings.</span></li>
+        <li><span class="text-text-primary font-medium">Sovereign Trust Deed (2021 Update):</span> <span class="text-text-secondary">Certified true copy.</span></li>
+      </ul>
+      <p class="mb-4">Priority upload channel: <span class="text-primary underline cursor-pointer">https://portal.northgatebank.com/secure-vault/apex-8841</span></p>
+      <p class="mb-4">I will remain directly on call should your secretariat require white-glove upload assistance.</p>
+      <p class="mb-1 text-text-secondary">Sincerely,</p>
+      <p class="font-headline-sm text-headline-sm text-text-primary">Sarah Jenkins</p>
+      <p class="font-mono-sm text-mono-sm text-brand-accent">Vice President, Corporate Banking</p>
+    `;
+    updateCounts();
+  }
+
+  // Tone Adjuster 3: Calendar
+  function applyAddMeeting() {
+    const editor = document.getElementById('email-editor');
+    if (!editor) return;
+    editor.innerHTML += `
+      <div class="mt-4 p-space-sm rounded-lg bg-surface-raised flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">calendar_month</span>
+          <span class="font-label-md text-label-md text-text-primary">15-min KYC Direct Concierge Slot with Sarah:</span>
+        </div>
+        <span class="text-primary font-mono-sm text-mono-sm underline cursor-pointer">Select Time on Sarah's Calendar &rarr;</span>
+      </div>
+    `;
+    updateCounts();
+  }
+
+  // Reset to Baseline
+  function resetToAiBaseline() {
+    const editor = document.getElementById('email-editor');
+    if (!editor) return;
+    editor.innerHTML = `
+      <p class="mb-4">Dear Alistair,</p>
+      <p class="mb-4">Thank you for the productive discussion during our treasury review on Monday. I am writing to ensure we finalize the remaining onboarding requirements for Apex Global Commodities’ £45,000,000 corporate FX facility ahead of your upcoming Friday executive meeting.</p>
+      <p class="mb-4">Our onboarding operations unit has completed 92% of the requisite regulatory clearances. To wrap up the file before market close on Thursday, could your legal secretariat kindly upload the following two outstanding items via our encrypted client portal:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2 text-primary">
+        <li><span class="text-text-primary font-medium">UBO Tier-2 Structure Document:</span> <span class="text-text-secondary">Depicting ultimate beneficial ownership above the 10% threshold for Apex Guernsey Holdings.</span></li>
+        <li><span class="text-text-primary font-medium">Sovereign Trust Deed (2021 Update):</span> <span class="text-text-secondary">Certified copy reflecting the current authorized signatories and trustee resolution.</span></li>
+      </ul>
+      <p class="mb-4">You can securely drop these into your personalized KYC vault here: <span class="text-primary underline cursor-pointer">https://portal.northgatebank.com/secure-vault/apex-8841</span></p>
+      <p class="mb-4">Please let me know if a quick 10-minute touchpoint this afternoon would be helpful to clear any questions with our lead compliance specialist.</p>
+      <p class="mb-1 text-text-secondary">Warm regards,</p>
+      <p class="font-headline-sm text-headline-sm text-text-primary">Sarah Jenkins</p>
+      <p class="font-mono-sm text-mono-sm text-brand-accent">Vice President, Corporate Banking &amp; Commodity Trade Finance</p>
+    `;
+    updateCounts();
+  }
+
+  // Dispatch Action
+  function executeRMDispatch() {
+    const btn = document.getElementById('dispatch-cta-btn');
+    if (btn) {
+      btn.innerHTML = `<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Transmitting via Outlook Gateway...</span>`;
+      btn.disabled = true;
+    }
+    setTimeout(() => {
+      const modal = document.getElementById('dispatch-success-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+      if (btn) {
+        btn.innerHTML = `<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">send</span><span>Approve &amp; Send Chase Email</span>`;
+        btn.disabled = false;
+      }
+    }, 1100);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('dispatch-success-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function confirmDiscard() {
+    if (confirm('Discard your pending edits and revert to orchestrator queue?')) {
+      alert('Draft archived. Returning to Orchestrator Inbox.');
+    }
+  }
+
+  // Initial count execution
+  updateCounts();
+</script></main></div></body></html>

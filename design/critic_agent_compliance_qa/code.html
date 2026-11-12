@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"status-warning":"#FFC542","inverse-surface":"#e6dff7","surface-raised":"#221E36","text-primary":"#F7F4FD","on-tertiary-fixed":"#231b00","tertiary":"#eac33f","on-primary":"#33118c","on-error-container":"#ffdad6","surface-container-lowest":"#0f0c1c","on-secondary-container":"#b8b1d0","secondary-container":"#48435e","secondary-fixed":"#e6deff","error":"#ffb4ab","surface-highlight":"#2F2B4A","surface-container-high":"#2b2839","on-tertiary-container":"#4e3e00","status-danger":"#FF5757","brand-accent":"#AB9FF2","outline":"#938e9e","surface-bright":"#3a3749","on-secondary-fixed-variant":"#48435e","on-primary-fixed-variant":"#4a31a2","surface":"#141121","error-container":"#93000a","status-success":"#3DD598","surface-dim":"#141121","surface-container":"#211d2e","tertiary-fixed-dim":"#e9c33f","on-primary-container":"#300c89","surface-container-highest":"#363244","surface-container-low":"#1c192a","on-primary-fixed":"#1d0061","inverse-primary":"#624bbc","surface-tint":"#cbbeff","background":"#141121","outline-variant":"#484552","text-muted":"#6E668B","secondary-fixed-dim":"#c9c2e2","surface-deep":"#151224","primary-fixed-dim":"#cbbeff","tertiary-container":"#cca823","secondary":"#c9c2e2","on-secondary":"#312d46","surface-variant":"#363244","on-tertiary":"#3c2f00","on-background":"#e6dff7","primary-container":"#9a84f8","on-surface-variant":"#cac4d5","text-secondary":"#AFA8CE","on-error":"#690005","on-surface":"#e6dff7","primary-fixed":"#e6deff","tertiary-fixed":"#ffe082","on-secondary-fixed":"#1c1830","inverse-on-surface":"#322e40","canvas-base":"#0B0914","primary":"#cbbeff","on-tertiary-fixed-variant":"#564500"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","margin-sm":"1.25rem","space-md":"1rem","gutter":"1.5rem","gutter-sm":"1rem","space-sm":"0.5rem","space-2xl":"4rem","margin":"2rem","space-lg":"1.5rem","space-xl":"2.5rem"},"fontFamily":{"headline-lg-mobile":["Sora"],"display-hero":["Sora"],"label-md":["DM Sans"],"body-lg":["DM Sans"],"headline-sm":["Sora"],"body-md":["DM Sans"],"headline-md":["Sora"],"mono-data":["JetBrains Mono"],"display-hero-mobile":["Sora"],"label-sm":["DM Sans"],"mono-sm":["JetBrains Mono"],"headline-lg":["Sora"],"body-sm":["DM Sans"]},"fontSize":{"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-data":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"mono-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-canvas-base font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_16px_rgba(11,9,20,0.6)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg min-w-max"><div class="flex items-center gap-space-sm"><img alt="Northgate ChaseZero Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV9hc8zw6M0AI53s86roeSJ1uXx4lSGhj-8B8CHWhGgxwOWHUEL-J0iTZWm8z7A6Mtfwh40ksVaLy-XVK5rQkxTuO4WxTMK7EMi1lWCtrfw4iLvzdxUVtVhuPTAneot-dRy7XZxQBkT4Ak6mHBmfLrSGHt_B37uwg4d0LtjE7wNV8O8fz-D_9amJpYSfaenO0cYCvjPcsPi1MkHfValC9lG9LUaCHw1xm4R0T1fccc"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-text-primary">Northgate <span class="text-primary">ChaseZero</span></span><span class="font-mono-sm text-mono-sm text-text-muted">ENTERPRISE KYC PLATFORM</span></div></div><div class="hidden xl:flex items-center gap-space-sm px-space-sm py-space-xs rounded-full bg-surface-raised/70"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-success opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-success"></span></span><span class="font-mono-data text-mono-data text-text-secondary">Agentic Engine Active • SLA Monitor Live</span></div></div><div class="flex-1 max-w-xl mx-auto hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-text-muted pointer-events-none">search</span><input class="w-full h-11 pl-11 pr-space-md rounded-full bg-surface-deep text-text-primary placeholder:text-text-muted font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary-container/40 transition-all" placeholder="Search Corporate Entities, LEIs, CIKs, or Case IDs..." type="text"/></div></div><div class="flex items-center gap-space-md min-w-max"><button class="relative p-space-sm rounded-full bg-surface-raised/60 hover:bg-surface-raised text-on-surface transition-colors"><span class="material-symbols-outlined text-text-secondary">notifications</span><span class="absolute top-1 right-1 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-status-danger font-mono-sm text-mono-sm text-on-error font-bold leading-none">3</span></button><div class="flex items-center gap-space-sm pl-space-sm py-space-xs pr-space-md rounded-full bg-surface-deep/80"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoxKz8U4OCnJ5SB48TiLMVzy_8NRWfNe_6npTnI3FBP5kTNO4ZEhuuGQyHdjtm3Ym1l3DO29LJnof5qbFrUjQOh56M7_w0HGfo5PS0zVC8H4UBDZgvgMK96w4HYxICN0G_JXPUkpLum4Vj8Ctyp4JYNoDLF34VmVwpyKCEPfFtWcSPY0KGfomeEAQKDZxZx6GzjbWZKoD9Pg_-qIjXz87dRdq35kTavvcemvsu0Prk"/><div class="hidden sm:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-text-muted">VP Corporate Banking</span></div></div></div></div><div class="w-full bg-surface-raised/90 backdrop-blur-md px-margin py-space-xs flex items-center justify-center gap-space-sm"><span class="material-symbols-outlined text-brand-accent text-sm">verified_user</span><span class="font-label-sm text-label-sm text-text-secondary text-center">Human-in-the-loop Protocol: AI drafts require Relationship Manager authorization before transmission.</span></div></header><aside class="fixed left-0 top-28 h-[calc(100vh-7rem)] w-72 bg-surface-container-lowest/80 backdrop-blur-xl z-40 flex flex-col justify-between pt-space-lg pb-space-lg"><div class="flex flex-col gap-space-md px-space-md"><div class="px-space-md text-text-muted font-mono-sm text-mono-sm tracking-wider uppercase">Autonomous Workflows</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-raised text-primary font-bold shadow-[0_0_16px_rgba(154,132,248,0.15)]"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="orchestrator-inbox" href="#"><span class="material-symbols-outlined text-brand-accent">inbox</span><span>Orchestrator Inbox</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="case-tracker-&amp;-audit" href="#"><span class="material-symbols-outlined text-brand-accent">policy</span><span>Case Tracker &amp; Audit</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="ai-drafting-agent" href="#"><span class="material-symbols-outlined text-brand-accent">smart_toy</span><span>AI Drafting Agent</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl transition-all bg-surface-raised text-primary font-bold shadow-[0_0_16px_rgba(154,132,248,0.15)]" data-path="critic-compliance-qa" href="#"><span class="material-symbols-outlined text-brand-accent">fact_check</span><span>Critic Compliance QA</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="human-in-the-loop-review" href="#"><span class="material-symbols-outlined text-brand-accent">rate_review</span><span>Human-in-the-Loop Review</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-highlight hover:text-on-surface transition-all" data-path="executive-success-dashboard" href="#"><span class="material-symbols-outlined text-brand-accent">insights</span><span>Executive Success Dashboard</span></a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="p-space-md rounded-xl bg-surface-deep/90 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-primary">SLA Buffer Health</span><span class="font-mono-data text-mono-data text-status-success">98.4%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-status-success rounded-full w-[98%]"></div></div><span class="font-mono-sm text-mono-sm text-text-muted">42 Autonomous Chases Executing</span></div></div></aside><div class="pl-72"><main class="relative w-full pt-28 px-margin pb-space-2xl bg-canvas-base"><div class="flex flex-col w-full gap-space-lg">
+<!-- Dynamic Atmospheric Underglow (contained) -->
+<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-xl">
+<div class="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-primary-container/10 blur-[90px] pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-20 h-64 w-64 rounded-full bg-status-success/10 blur-[80px] pointer-events-none"></div>
+<!-- Header Block -->
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-raised font-mono-sm text-mono-sm text-brand-accent uppercase tracking-wider">Automated Policy Gate</span>
+<span class="text-text-muted">•</span>
+<span class="font-mono-sm text-mono-sm text-text-secondary">Engine SLA: <span class="text-status-success">0.42s latency</span></span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Critic Agent Compliance QA</h1>
+<p class="font-body-md text-body-md text-text-secondary">Automated regulatory guardrail scan &amp; policy verification for Case <span class="font-mono-data text-mono-data text-brand-accent">#NCZ-2024-8841</span> (Aethelgard Global Holdings Ltd).</p>
+</div>
+<!-- Verified Status Pill Pill-Box -->
+<div class="flex items-center gap-space-md bg-surface-raised/90 p-space-sm pl-space-md rounded-xl shadow-md backdrop-blur-md">
+<div class="flex items-center gap-space-sm">
+<div class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-success opacity-80"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-status-success"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-status-success leading-tight">COMPLIANCE AUDIT PASSED</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">5 OF 5 CHECKS CLEARED</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-highest"></div>
+<div class="flex flex-col pr-space-xs">
+<span class="font-mono-sm text-mono-sm text-text-muted uppercase">Audit Hash</span>
+<span class="font-mono-data text-mono-data text-text-primary">#QA-9921-SEC-V3</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Asymmetric Workspace (Split View 60/40) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT 60% (7 cols on 12-col grid): Interactive Email Draft Inspector -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Top Action Bar for Email Sandbox -->
+<div class="flex items-center justify-between px-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-brand-accent text-sm">mark_email_read</span>
+<span class="font-label-md text-label-md text-text-primary">Client Transmission Draft</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high font-mono-sm text-mono-sm text-text-muted">Outbound English (UK)</span>
+</div>
+<div class="flex items-center gap-space-xs text-text-muted font-mono-sm text-mono-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-brand-accent"></span>
+          Interactive Annotation Inspector Active
+        </div>
+</div>
+<!-- Email Card Canvas -->
+<div class="relative rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-lg overflow-hidden">
+<!-- Metadata Header Strip -->
+<div class="flex flex-col gap-space-xs pb-space-md bg-surface-container/40 p-space-md rounded-lg">
+<div class="grid grid-cols-12 gap-space-xs font-mono-sm text-mono-sm">
+<span class="col-span-2 text-text-muted">TO:</span>
+<span class="col-span-10 text-text-primary">Marcus Vance &lt;m.vance@aethelgard-holdings.co.uk&gt;</span>
+</div>
+<div class="grid grid-cols-12 gap-space-xs font-mono-sm text-mono-sm">
+<span class="col-span-2 text-text-muted">CC:</span>
+<span class="col-span-10 text-text-muted">sarah.jenkins@northgate-bank.com (RM Authorization Queue)</span>
+</div>
+<div class="grid grid-cols-12 gap-space-xs font-mono-sm text-mono-sm">
+<span class="col-span-2 text-text-muted">SUBJECT:</span>
+<span class="col-span-10 text-text-primary font-bold">Northgate Commercial Banking: Annual Periodic KYC Review — Action Required [Ref: #NCZ-2024-8841]</span>
+</div>
+</div>
+<!-- Email Body with Safety Bounding Visuals -->
+<div class="flex flex-col gap-space-lg text-body-md text-text-primary font-body-md leading-relaxed pt-space-xs">
+<!-- Salutation & Opening Paragraph with Blue Register Highlight -->
+<div class="relative group pl-space-md transition-all">
+<div class="absolute left-0 top-1 bottom-1 w-1 rounded-full bg-brand-accent/50 group-hover:bg-brand-accent transition-colors"></div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-brand-accent text-sm mt-1 select-none" title="Tone verification pass">verified</span>
+<div class="flex-1">
+<p>Dear Mr. Vance,</p>
+<p class="mt-space-sm">
+                  We hope this message finds you well. As part of Northgate Capital's standard regulatory governance and in accordance with UK Financial Conduct Authority guidelines, we are currently concluding our scheduled annual KYC review for <strong class="text-text-primary">Aethelgard Global Holdings Ltd</strong>.
+                </p>
+<!-- Safety Guardrail Pill Tag -->
+<div class="inline-flex items-center gap-space-xs mt-space-xs px-space-sm py-0.5 rounded-full bg-brand-accent/15 text-brand-accent font-mono-sm text-mono-sm">
+<span class="material-symbols-outlined text-xs">sentiment_satisfied</span>
+<span>[Tone Check: Polite, executive-grade institutional register • Politeness Score 99.2%]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Document Section with Green Grounding Highlight -->
+<div class="relative group pl-space-md transition-all">
+<div class="absolute left-0 top-1 bottom-1 w-1 rounded-full bg-status-success group-hover:bg-status-success transition-colors"></div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-status-success text-sm mt-1 select-none" title="Documents grounded in case tracker">verified_user</span>
+<div class="flex-1">
+<p>
+                  To complete the audit file without delay, our compliance records require two outstanding entity documents:
+                </p>
+<div class="my-space-sm p-space-sm rounded-lg bg-surface-raised flex flex-col gap-space-xs font-mono-data text-mono-data">
+<div class="flex items-center gap-space-sm text-status-success">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>1. Updated 2024 Register of Persons with Significant Control (PSC Register)</span>
+</div>
+<div class="flex items-center gap-space-sm text-status-success">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>2. Certified Proof of Operational Address for the Luxembourg Holding SPV</span>
+</div>
+</div>
+<!-- Safety Guardrail Pill Tag -->
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-status-success/15 text-status-success font-mono-sm text-mono-sm">
+<span class="material-symbols-outlined text-xs">rule</span>
+<span>[Verified against case tracker: Exactly 2 docs requested, no hallucinated requirements]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Section with Purple Verification Highlight -->
+<div class="relative group pl-space-md transition-all">
+<div class="absolute left-0 top-1 bottom-1 w-1 rounded-full bg-primary group-hover:bg-primary-container transition-colors"></div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-sm mt-1 select-none" title="Timeline calibrated against case file">schedule</span>
+<div class="flex-1">
+<p>
+                  To ensure uninterrupted access to institutional credit facilities, we kindly request submission via our encrypted secure portal prior to <span class="text-primary font-bold">November 1, 2024 at 17:00 GMT</span>.
+                </p>
+<!-- Safety Guardrail Pill Tag -->
+<div class="inline-flex items-center gap-space-xs mt-space-xs px-space-sm py-0.5 rounded-full bg-primary-container/20 text-primary font-mono-sm text-mono-sm">
+<span class="material-symbols-outlined text-xs">event_available</span>
+<span>[Timeline Verification: Mention of Nov 1st matches RM account notes &amp; statutory SLA]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PII & Security Safe Portal Callout -->
+<div class="relative group pl-space-md transition-all">
+<div class="absolute left-0 top-1 bottom-1 w-1 rounded-full bg-brand-accent/50"></div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-brand-accent text-sm mt-1 select-none">lock</span>
+<div class="flex-1">
+<p>
+                  Please transmit these files strictly through the Northgate Secure Client Workspace link generated for your treasury team below. Do not reply with unencrypted passport scans or identity records via email.
+                </p>
+<div class="mt-space-sm py-space-xs px-space-md rounded-lg bg-surface-deep flex items-center justify-between">
+<span class="font-mono-sm text-mono-sm text-brand-accent">https://portal.northgate.bank/upload/case-8841-auth-vance</span>
+<span class="font-label-sm text-label-sm text-text-muted">TLS 1.3 256-bit Encrypted</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Signoff & Disclaimer -->
+<div class="pt-space-sm flex flex-col gap-space-xs">
+<p>Warm regards,</p>
+<p class="font-bold text-text-primary">Sarah Jenkins<br/><span class="font-normal text-text-muted text-body-sm">VP Corporate Banking, Northgate Capital Markets</span></p>
+<div class="mt-space-md pt-space-sm bg-surface-container/30 p-space-sm rounded text-text-muted font-body-sm text-body-sm leading-tight">
+<p class="font-mono-sm text-mono-sm">CONFIDENTIALITY &amp; COMPLIANCE NOTICE: This communication is issued pursuant to Northgate Risk &amp; Settlement Protocols. It does not constitute a legally binding loan commitment or final credit renewal authorization. Northgate Bank plc is authorized and regulated by the PRA and FCA.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 40% (5 cols on 12-col grid): Critic Audit Checklist & Policy Cards -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Panel Header & Quick Stats -->
+<div class="flex items-center justify-between px-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-status-success text-sm">security_update_good</span>
+<span class="font-label-md text-label-md text-text-primary">Critic Agent Audit Checklist</span>
+</div>
+<span class="font-mono-data text-mono-data text-status-success bg-status-success/10 px-space-sm py-0.5 rounded-full">Score: 100/100</span>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1: Tone & Register -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md transition-all hover:bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent/20 text-brand-accent">
+<span class="material-symbols-outlined text-sm">record_voice_over</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Tone &amp; Register</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/15 font-mono-sm text-mono-sm text-status-success font-bold">PASSED: Professional Executive</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-8">
+            No aggressive debt-collection phrasing, coercive language, or abrupt directives. Maintains respectful, institutional corporate banking cadence.
+          </p>
+<div class="mt-space-xs pl-8 flex items-center gap-space-md font-mono-sm text-mono-sm text-text-muted">
+<span>Lexical register: Tier-1 Bank</span>
+<span>Sentiment: Neutral (+0.04)</span>
+</div>
+</div>
+<!-- Card 2: Document Accuracy -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md transition-all hover:bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-status-success/20 text-status-success">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Document Accuracy</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/15 font-mono-sm text-mono-sm text-status-success font-bold">PASSED: 100% Grounded</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-8">
+            Only documents flagged as 'Missing' in the tracker are cited. Zero hallucinated items; no already 'Verified' documents re-requested.
+          </p>
+<div class="mt-space-xs pl-8 flex items-center gap-space-sm font-mono-sm text-mono-sm text-text-muted">
+<span class="text-status-success flex items-center gap-1"><span class="material-symbols-outlined text-xs">done</span> PSC Register</span>
+<span class="text-status-success flex items-center gap-1"><span class="material-symbols-outlined text-xs">done</span> Luxembourg Address</span>
+</div>
+</div>
+<!-- Card 3: Promise & Liability Check -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md transition-all hover:bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent/20 text-brand-accent">
+<span class="material-symbols-outlined text-sm">gavel</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Promise &amp; Liability Check</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/15 font-mono-sm text-mono-sm text-status-success font-bold">PASSED: Zero Commitments</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-8">
+            Draft makes zero promises of unconditional credit approval, guaranteed timeline exemptions, or waiver of regulatory obligations.
+          </p>
+<div class="mt-space-xs pl-8 flex items-center gap-space-md font-mono-sm text-mono-sm text-text-muted">
+<span>Liability Exposure: $0.00</span>
+<span>Warranty clauses: 0</span>
+</div>
+</div>
+<!-- Card 4: PII & Security Protocol -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md transition-all hover:bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-container/20 text-primary">
+<span class="material-symbols-outlined text-sm">shield</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">PII &amp; Security Protocol</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/15 font-mono-sm text-mono-sm text-status-success font-bold">PASSED: Compliant</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-8">
+            Contains authorized secure portal upload instructions; no unencrypted sensitive account numbers, tax IDs, or passwords exposed in cleartext.
+          </p>
+<div class="mt-space-xs pl-8 flex items-center gap-space-md font-mono-sm text-mono-sm text-text-muted">
+<span>Encrypted Token: Valid</span>
+<span>GDPR/DPA 2018: Clear</span>
+</div>
+</div>
+<!-- Card 5: Regulatory Disclosures -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md transition-all hover:bg-surface-raised flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-status-success/20 text-status-success">
+<span class="material-symbols-outlined text-sm">verified</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-text-primary">Regulatory Disclosures</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/15 font-mono-sm text-mono-sm text-status-success font-bold">PASSED: Standard Northgate</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-8">
+            Standard Northgate Disclaimer attached. PRA/FCA regulatory notice, non-binding declaration, and confidentiality clause fully present.
+          </p>
+<div class="mt-space-xs pl-8 flex items-center gap-space-md font-mono-sm text-mono-sm text-text-muted">
+<span>Footer Pattern: SEC-FCA-2024-R</span>
+<span>Signature Key: Valid</span>
+</div>
+</div>
+</div>
+<!-- Agent Confidence Metric Widget -->
+<div class="rounded-xl bg-surface-raised/70 p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-brand-accent text-sm">psychology</span>
+            Critic Neural Policy Consensus
+          </span>
+<span class="font-mono-data text-mono-data text-brand-accent">99.8% Alignment</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container via-brand-accent to-status-success rounded-full w-[99.8%]"></div>
+</div>
+<div class="flex justify-between font-mono-sm text-mono-sm text-text-muted">
+<span>Evaluator: Claude 3.5 Sonnet (Critic FinReg-7B)</span>
+<span>Zero hallucinations detected</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sticky / Floating Institutional Control Bar -->
+<div class="sticky bottom-4 z-30 w-full mt-space-md rounded-xl bg-surface-container-lowest/95 backdrop-blur-xl p-space-md shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- Left Engine & Compliance Signature -->
+<div class="flex items-center gap-space-md">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-raised text-brand-accent">
+<span class="material-symbols-outlined">policy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-text-primary">Policy Engine v4.8 Certified</span>
+<span class="flex h-2 w-2 rounded-full bg-status-success"></span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted">Critic Agent verified by Northgate Risk Policy Engine v4.8 • Safe for RM authorization</span>
+</div>
+</div>
+<!-- Interactive Decision Action Group -->
+<div class="flex items-center gap-space-md w-full sm:w-auto justify-end">
+<!-- Re-run Critic Scan Button -->
+<button class="flex items-center justify-center gap-space-sm px-space-lg py-3 rounded-full bg-surface-raised/80 hover:bg-surface-raised text-text-primary font-label-md text-label-md transition-all active:scale-95" id="btn-rerun" onclick="triggerRescan()">
+<span class="material-symbols-outlined text-sm text-brand-accent" id="rescan-icon">refresh</span>
+<span id="rescan-text">Re-run Critic Scan</span>
+</button>
+<!-- Primary Highlighted CTA Button -->
+<button class="flex items-center justify-center gap-space-sm px-space-xl py-3 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-lg hover:brightness-110 active:scale-98 transition-all" id="btn-proceed" onclick="proceedToReview()">
+<span class="material-symbols-outlined text-lg">shield_with_heart</span>
+<span>Proceed to Human-in-the-Loop Review</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function triggerRescan() {
+    const icon = document.getElementById('rescan-icon');
+    const text = document.getElementById('rescan-text');
+    if (!icon || !text) return;
+    
+    icon.classList.add('animate-spin');
+    text.textContent = 'Scanning 14 Rules...';
+    
+    setTimeout(() => {
+      icon.classList.remove('animate-spin');
+      text.textContent = 'Scan Complete • 100% Pass';
+      setTimeout(() => {
+        text.textContent = 'Re-run Critic Scan';
+      }, 2500);
+    }, 1200);
+  }
+
+  function proceedToReview() {
+    const btn = document.getElementById('btn-proceed');
+    if (!btn) return;
+    
+    btn.innerHTML = `<span class="material-symbols-outlined text-sm animate-spin">sync</span><span>Routing to RM Queue...</span>`;
+    setTimeout(() => {
+      // Find the Human-in-the-Loop navigation link and navigate smoothly
+      const targetNav = document.querySelector('a[data-path="human-in-the-loop-review"]');
+      if (targetNav) {
+        targetNav.click();
+      } else {
+        btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span><span>Handed to RM Sarah Jenkins</span>`;
+      }
+    }, 800);
+  }
+</script></main></div></body></html>

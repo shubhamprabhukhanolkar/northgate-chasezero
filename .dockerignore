@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+!.env.example
+*.db
+__pycache__
+*.pyc
+backend/.venv
+backend/tests
+backend/build_exe
+frontend/node_modules
+frontend/dist
+dist
+design
+ChaseZero.bat
+start-dev.ps1
+build-exe.ps1

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f0c1c;color:#e6dff7;font-family:'DM Sans',sans-serif;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-low":"#1c192a","tertiary-container":"#cca823","on-surface-variant":"#cac4d5","on-surface":"#e6dff7","surface-highlight":"#2F2B4A","surface-container":"#211d2e","text-primary":"#F7F4FD","error":"#ffb4ab","surface-raised":"#221E36","surface-container-high":"#2b2839","tertiary-fixed-dim":"#e9c33f","outline":"#938e9e","secondary-container":"#48435e","inverse-primary":"#624bbc","primary":"#cbbeff","on-tertiary-fixed-variant":"#564500","error-container":"#93000a","on-secondary-fixed":"#1c1830","secondary-fixed":"#e6deff","surface-deep":"#151224","brand-accent":"#AB9FF2","primary-fixed":"#e6deff","on-background":"#e6dff7","on-error-container":"#ffdad6","tertiary":"#eac33f","text-muted":"#6E668B","inverse-on-surface":"#322e40","surface-container-lowest":"#0f0c1c","status-danger":"#FF5757","primary-fixed-dim":"#cbbeff","primary-container":"#9a84f8","surface-tint":"#cbbeff","secondary-fixed-dim":"#c9c2e2","on-tertiary":"#3c2f00","on-secondary-fixed-variant":"#48435e","tertiary-fixed":"#ffe082","canvas-base":"#0B0914","on-primary-fixed-variant":"#4a31a2","on-primary":"#33118c","on-secondary":"#312d46","surface-dim":"#141121","inverse-surface":"#e6dff7","on-primary-container":"#300c89","surface-container-highest":"#363244","on-error":"#690005","surface":"#141121","on-primary-fixed":"#1d0061","background":"#141121","surface-variant":"#363244","secondary":"#c9c2e2","outline-variant":"#484552","on-tertiary-container":"#4e3e00","status-warning":"#FFC542","on-secondary-container":"#b8b1d0","text-secondary":"#AFA8CE","status-success":"#3DD598","on-tertiary-fixed":"#231b00","surface-bright":"#3a3749"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-sm":"1rem","space-2xl":"4rem","space-xl":"2.5rem","margin-sm":"1.25rem","space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","gutter":"1.5rem","margin":"2rem"},fontFamily:{"headline-sm":["Sora"],"headline-md":["Sora"],"headline-lg-mobile":["Sora"],"mono-data":["JetBrains Mono"],"mono-sm":["JetBrains Mono"],"display-hero":["Sora"],"display-hero-mobile":["Sora"],"body-sm":["DM Sans"],"label-sm":["DM Sans"],"label-md":["DM Sans"],"body-md":["DM Sans"],"headline-lg":["Sora"],"body-lg":["DM Sans"]},fontSize:{"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-data":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"mono-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col font-body-md text-body-md antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-low/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(11,9,20,0.5)]"><div class="h-16 px-gutter-sm flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><div class="w-9 h-9 rounded-xl bg-surface-raised flex items-center justify-center text-primary-container shadow-[0_0_16px_rgba(154,132,248,0.2)]"><span class="material-symbols-outlined text-[20px]">shield_with_house</span></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight truncate">ChaseZero</span><span class="font-mono-sm text-mono-sm text-brand-accent px-1.5 py-0.5 rounded-full bg-primary-container/10">KYC</span></div><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-status-success animate-pulse"></span><span class="font-label-sm text-label-sm text-status-success text-[10px] tracking-wide uppercase font-semibold">Agentic Engine Active</span></div></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-primary-container text-canvas-base font-mono-sm text-[10px] font-bold shadow-[0_0_8px_rgba(154,132,248,0.6)]">4</span></button><div class="relative flex items-center gap-2 pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_10px_rgba(154,132,248,0.3)]" title="Sarah Jenkins"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full px-margin-sm space-y-space-md">
+<!-- Report Header Section -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-xl">
+<div class="absolute -right-10 -top-10 w-36 h-36 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-container/15 text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified Synthesis</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted">W2·PILOT-REPORT</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-text-primary tracking-tight">Executive Success &amp; 2-Week Pilot Review</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">ChaseZero Automated Orchestration Impact Report</p>
+<!-- Cohort Badges Carousel -->
+<div class="flex items-center gap-1.5 mt-space-md overflow-x-auto no-scrollbar py-0.5">
+<span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+        400 Corporate Accounts
+      </span>
+<span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-status-success text-label-sm font-label-sm shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success animate-ping"></span>
+        Week 2 Pilot (Live)
+      </span>
+<span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-text-secondary">public</span>
+        EMEA &amp; Americas
+      </span>
+</div>
+</div>
+<!-- KPI 1: Primary Operational Velocity -->
+<div class="rounded-xl bg-surface-deep p-space-md shadow-lg space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-mono-sm text-mono-sm tracking-wider uppercase text-text-secondary">Operational Velocity</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary font-bold">3.1</span>
+<span class="font-body-md text-body-md text-text-secondary">Days / Chase Round</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-status-success/15 text-status-success font-mono-data text-mono-data">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>-43.6%</span>
+</div>
+</div>
+<!-- Mini Benchmark Stepper -->
+<div class="p-3 rounded-lg bg-surface-container-low/70 space-y-2">
+<div class="flex justify-between font-label-sm text-label-sm text-text-muted">
+<span>Baseline</span>
+<span class="text-text-primary font-semibold">Current (W2)</span>
+<span>Target</span>
+</div>
+<div class="relative w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="absolute left-0 top-0 h-full bg-text-muted/40 w-full rounded-full"></div>
+<div class="absolute left-0 top-0 h-full bg-gradient-to-r from-primary-container to-brand-accent rounded-full" style="width: 56%;"></div>
+</div>
+<div class="flex justify-between font-mono-sm text-mono-sm text-text-secondary">
+<span>5.5d</span>
+<span class="text-primary font-semibold">3.1d</span>
+<span class="text-text-muted">3.0d</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Quantified Pilot Value -->
+<div class="rounded-xl bg-surface-deep p-space-md shadow-lg space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-mono-sm text-mono-sm tracking-wider uppercase text-text-secondary">Quantified Pilot Value</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/20 text-tertiary font-mono-sm text-[10px] font-semibold">96% OF GOAL</span>
+</div>
+<div class="mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary font-bold">2,880</span>
+<span class="font-body-md text-body-md text-on-surface-variant block">Case-Days Saved / Month</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-highlight flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined text-[22px]">savings</span>
+</div>
+</div>
+<div class="rounded-lg bg-surface-container-low/70 p-3 space-y-2">
+<p class="font-mono-sm text-mono-sm text-text-secondary leading-relaxed">
+<span class="text-text-primary font-semibold">400</span> clients × <span class="text-text-primary font-semibold">3</span> rounds × <span class="text-primary font-semibold">2.4d</span> saved = <span class="text-status-success font-semibold">2,880 unlocked days</span>
+</p>
+<div class="flex items-center gap-2 pt-1.5 text-text-primary">
+<span class="material-symbols-outlined text-tertiary text-[18px]">monetization_on</span>
+<span class="font-label-md text-label-md font-semibold text-text-primary">Pipeline Acceleration: <span class="text-tertiary font-bold">£14.2M</span> capital deployment enabled</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Governance & RM Alignment -->
+<div class="rounded-xl bg-surface-deep p-space-md shadow-lg space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-mono-sm text-mono-sm tracking-wider uppercase text-text-secondary">Governance &amp; RM Alignment</span>
+<span class="px-1.5 py-0.2 rounded bg-status-success/20 text-status-success font-mono-sm text-[10px] font-semibold">ZERO BYPASS</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary font-bold">94.2%</span>
+<span class="font-body-md text-body-md text-text-secondary">RM Adoption Rate</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-highlight flex items-center justify-center text-status-success shadow-inner">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-text-primary font-semibold">377 of 400</strong> cases dispatched instantly via 1-click or single minor RM adjustment.
+    </p>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">timer</span>
+<div>
+<span class="font-mono-data text-mono-data text-text-primary block font-bold">48 Sec</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Avg RM Review</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-status-success text-[20px]">security</span>
+<div>
+<span class="font-mono-data text-mono-data text-status-success block font-bold">0 Violations</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">Critic Intercepts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Timeline Comparison -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-xl space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Timeline Compression</h2>
+<span class="font-mono-sm text-mono-sm text-text-muted">Overall KYC Onboarding (Days 0 to 62)</span>
+</div>
+<button aria-label="Toggle Metric Details" class="p-2 rounded-lg bg-surface-raised text-primary hover:bg-surface-highlight transition-all active:scale-95" id="toggle-timeline-btn">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Comparative Bar Graph -->
+<div class="space-y-4 pt-1">
+<!-- Pre-Pilot Baseline -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-text-secondary flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-text-muted"></span> Pre-Pilot Baseline
+          </span>
+<span class="font-mono-data text-mono-data text-on-surface">62.0 Days</span>
+</div>
+<!-- Stacked timeline bar -->
+<div class="h-6 w-full rounded-lg bg-surface-raised flex overflow-hidden p-0.5 gap-0.5">
+<div class="h-full bg-secondary-container rounded-l flex items-center justify-center font-mono-sm text-[10px] text-text-primary" style="width: 25.8%;" title="Intake: 16d">16d</div>
+<div class="h-full bg-error/70 flex items-center justify-center font-mono-sm text-[10px] text-on-surface font-semibold" style="width: 27.4%;" title="Chasing: 17d">Chasing 17.0d</div>
+<div class="h-full bg-surface-container-highest rounded-r flex items-center justify-center font-mono-sm text-[10px] text-text-secondary" style="width: 46.8%;" title="Underwriting: 29d">UW 29d</div>
+</div>
+</div>
+<!-- ChaseZero Week 2 Slice -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-primary flex items-center gap-1.5 font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> ChaseZero Pilot
+          </span>
+<div class="flex items-center gap-1.5">
+<span class="font-mono-data text-mono-data text-text-primary font-bold">52.8 Days</span>
+<span class="font-mono-sm text-mono-sm text-status-success font-semibold">(-14.8%)</span>
+</div>
+</div>
+<!-- Stacked timeline bar compressed -->
+<div class="h-6 w-full rounded-lg bg-surface-raised flex overflow-hidden p-0.5 gap-0.5">
+<div class="h-full bg-secondary-container rounded-l flex items-center justify-center font-mono-sm text-[10px] text-text-primary" style="width: 25.8%;" title="Intake: 16d">16d</div>
+<div class="h-full bg-status-success/80 flex items-center justify-center font-mono-sm text-[10px] text-canvas-base font-bold shadow-sm" style="width: 12.5%;" title="Compressed Chasing: 7.8d">7.8d</div>
+<div class="h-full bg-surface-container-highest rounded-r flex items-center justify-center font-mono-sm text-[10px] text-text-secondary" style="width: 46.8%;" title="Underwriting: 29d">UW 29d</div>
+</div>
+</div>
+</div>
+<!-- Timeline Callout Badge -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5 transition-all" id="timeline-detail-panel">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">compress</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Document chasing period compressed from <span class="line-through text-text-muted">17.0 days</span> to <strong class="text-status-success font-semibold">7.8 days</strong>, eliminating 9.2 net calendar days of stalled capital per onboarding client.
+      </p>
+</div>
+</div>
+<!-- SLA Breach & Client Inertia Mitigation -->
+<div class="rounded-xl bg-surface-deep p-space-md shadow-xl space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-text-primary">SLA Inertia Collapse</h2>
+<span class="px-2 py-0.5 rounded-full bg-status-success/20 text-status-success font-mono-sm text-mono-sm font-semibold">-59.0% Delta</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-text-muted">Baseline Unresponsive</span>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-status-danger font-bold">68.0%</span>
+<span class="font-mono-sm text-mono-sm text-text-muted">cases</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted mt-1">Manual Chasing</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-highlight flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-brand-accent">ChaseZero Week 2</span>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-status-success font-bold">9.0%</span>
+<span class="font-mono-sm text-mono-sm text-on-surface">cases</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-status-success font-semibold mt-1">Target Met (&lt;10%)</span>
+</div>
+</div>
+<!-- Escalation Metric -->
+<div class="p-3 rounded-lg bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-raised flex items-center justify-center text-status-warning">
+<span class="material-symbols-outlined text-[16px]">flag_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-primary">Escalations Avoided</span>
+</div>
+<span class="font-mono-data text-mono-data text-brand-accent font-bold">236 RM Tasks</span>
+</div>
+</div>
+<!-- Desk Performance Overview -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-xl space-y-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Participating Desks</h2>
+<span class="font-mono-sm text-mono-sm text-text-muted">Live Cohort Breakdown</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-brand-accent">3 Active Units</span>
+</div>
+<div class="space-y-2 pt-1">
+<!-- Desk 1: FX & Rates -->
+<div class="p-3 rounded-lg bg-surface-deep flex items-center justify-between">
+<div class="min-w-0 pr-2">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+<span class="font-label-md text-label-md text-text-primary font-semibold truncate">FX &amp; Rates Desk</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted block mt-0.5">180 Accounts · 96.1% Adoption</span>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-mono-data text-mono-data text-status-success font-bold">2.8d</span>
+<span class="font-mono-sm text-mono-sm text-text-muted block">Round Avg</span>
+</div>
+</div>
+<!-- Desk 2: Energy & Commodities -->
+<div class="p-3 rounded-lg bg-surface-deep flex items-center justify-between">
+<div class="min-w-0 pr-2">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+<span class="font-label-md text-label-md text-text-primary font-semibold truncate">Energy &amp; Commodities</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted block mt-0.5">140 Accounts · 93.8% Adoption</span>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-mono-data text-mono-data text-status-success font-bold">3.2d</span>
+<span class="font-mono-sm text-mono-sm text-text-muted block">Round Avg</span>
+</div>
+</div>
+<!-- Desk 3: Structured Debt -->
+<div class="p-3 rounded-lg bg-surface-deep flex items-center justify-between">
+<div class="min-w-0 pr-2">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-status-warning"></span>
+<span class="font-label-md text-label-md text-text-primary font-semibold truncate">Structured Debt</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-text-muted block mt-0.5">80 Accounts · 91.5% Adoption</span>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-mono-data text-mono-data text-primary font-bold">3.4d</span>
+<span class="font-mono-sm text-mono-sm text-text-muted block">Round Avg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pilot Action Suite (Export / Scale) -->
+<div class="pt-space-xs space-y-space-sm pb-space-lg">
+<button class="w-full h-13 py-3.5 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-lg active:scale-98 transition-transform" id="export-summary-btn">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span>Export Board-Ready Summary</span>
+</button>
+<button class="w-full h-12 py-3 px-space-md rounded-full bg-surface-raised text-text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 hover:bg-surface-highlight active:scale-98 transition-all" id="scale-apac-btn">
+<span class="material-symbols-outlined text-brand-accent text-[20px]">rocket_launch</span>
+<span>Scale Pilot to APAC Desks</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const exportBtn = document.getElementById('export-summary-btn');
+    const scaleBtn = document.getElementById('scale-apac-btn');
+    const toggleTimelineBtn = document.getElementById('toggle-timeline-btn');
+    const timelinePanel = document.getElementById('timeline-detail-panel');
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function() {
+        const originalContent = exportBtn.innerHTML;
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span><span>Compiling PDF Pack...</span>';
+        setTimeout(function() {
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Board Pack Dispatched!</span>';
+          setTimeout(function() {
+            exportBtn.innerHTML = originalContent;
+          }, 2400);
+        }, 1200);
+      });
+    }
+
+    if (scaleBtn) {
+      scaleBtn.addEventListener('click', function() {
+        const originalContent = scaleBtn.innerHTML;
+        scaleBtn.innerHTML = '<span class="material-symbols-outlined text-brand-accent text-[20px]">done_all</span><span>APAC Blueprint Queued</span>';
+        setTimeout(function() {
+          scaleBtn.innerHTML = originalContent;
+        }, 2000);
+      });
+    }
+
+    if (toggleTimelineBtn && timelinePanel) {
+      toggleTimelineBtn.addEventListener('click', function() {
+        timelinePanel.classList.toggle('opacity-50');
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-low/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(11,9,20,0.6)]" data-active-classes="text-primary-container font-semibold"><div class="flex items-center justify-around h-16 px-1"><a class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant hover:text-on-surface transition-colors min-w-[44px]" data-path="orchestrator-inbox" href="#"><span class="material-symbols-outlined text-[20px]">inbox</span><span class="font-label-sm text-[10px] tracking-tight">Inbox</span></a><a class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant hover:text-on-surface transition-colors min-w-[44px]" data-path="case-tracker" href="#"><span class="material-symbols-outlined text-[20px]">folder_shared</span><span class="font-label-sm text-[10px] tracking-tight">Cases</span></a><a class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant hover:text-on-surface transition-colors min-w-[44px]" data-path="drafting-studio" href="#"><span class="material-symbols-outlined text-[20px]">edit_note</span><span class="font-label-sm text-[10px] tracking-tight">Drafting</span></a><a class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant hover:text-on-surface transition-colors min-w-[44px]" data-path="critic-qa-lab" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span class="font-label-sm text-[10px] tracking-tight">Critic QA</span></a><a class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant hover:text-on-surface transition-colors min-w-[44px]" data-path="hitl-review" href="#"><span class="material-symbols-outlined text-[20px]">how_to_reg</span><span class="font-label-sm text-[10px] tracking-tight">Review</span></a><a aria-current="page" class="flex-1 flex flex-col items-center justify-center gap-0.5 h-full transition-colors min-w-[44px] text-primary-container font-semibold" data-path="risk-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span class="font-label-sm text-[10px] tracking-tight">Metrics</span></a></div></nav></body></html>
