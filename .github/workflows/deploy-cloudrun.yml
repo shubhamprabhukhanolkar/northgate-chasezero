@@ -1,120 +1,145 @@
-name: CI/CD — Test, Build & Deploy ChaseZero to GCP Cloud Run
+name: Build, Test & Deploy to Google Cloud Run
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 env:
-  SERVICE_NAME: chasezero
-  ARTIFACT_REPO: chasezero
-  GCP_REGION: ${{ vars.GCP_REGION || 'us-central1' }}
-  GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+  GCP_REGION: ${{ vars.GCP_REGION || 'asia-south1' }}
+  ARTIFACT_REPO: northgate-repo
+  SERVICE_NAME: northgate-chasezero
 
 jobs:
-  ci-test:
-    name: Backend Tests & Frontend Build
+  test:
+    name: Run Automated Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.12 via uv
-        uses: astral-sh/setup-uv@v4
+      - name: Set up Python & uv
+        uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.12"
 
-      - name: Install backend & test dependencies
-        working-directory: backend
+      - name: Install Backend Dependencies
+        working-directory: ./backend
         run: uv sync --extra dev
 
-      - name: Run LangGraph & FastAPI integration tests
-        working-directory: backend
+      - name: Run Backend Pytest Suite
+        working-directory: ./backend
         run: uv run pytest -v
 
-      - name: Set up Node.js 22
+      - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          node-version: "20"
 
-      - name: Build React + Tailwind CSS v4 frontend
-        working-directory: frontend
+      - name: Build Frontend
+        working-directory: ./frontend
         run: |
-          npm ci
+          npm ci || npm install
           npm run build
 
-  deploy-gcp:
-    name: Build Docker Image & Deploy to Cloud Run
-    needs: ci-test
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+  deploy:
+    name: Build Docker Container & Deploy to Cloud Run
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       id-token: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Validate GCP Project ID variable
-        run: |
-          if [ -z "$GCP_PROJECT_ID" ]; then
-            echo "Error: Set GitHub Repository Variable GCP_PROJECT_ID first (see DEPLOYMENT.md)."
-            exit 1
-          fi
-
-      - name: Authenticate to Google Cloud (Workload Identity Federation)
+      # Step 1: Authenticate with Google Cloud
+      - name: Authenticate to Google Cloud
+        id: auth
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Set up gcloud CLI
+      # Step 2: Set up Cloud SDK
+      - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
-
-      - name: Configure Docker for Artifact Registry
-        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
-
-      - name: Build & Push Docker image
-        run: |
-          IMAGE_URI="${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.ARTIFACT_REPO }}/${{ env.SERVICE_NAME }}"
-          docker build -t "${IMAGE_URI}:${{ github.sha }}" -t "${IMAGE_URI}:latest" .
-          docker push "${IMAGE_URI}:${{ github.sha }}"
-          docker push "${IMAGE_URI}:latest"
-
-      - name: Deploy to Google Cloud Run
-        id: deploy
-        uses: google-github-actions/deploy-cloudrun@v2
         with:
-          service: ${{ env.SERVICE_NAME }}
-          region: ${{ env.GCP_REGION }}
-          image: ${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.ARTIFACT_REPO }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-          flags: >-
-            --allow-unauthenticated
-            --port=8080
-            --memory=1Gi
-            --cpu=1
-            --min-instances=0
-            --max-instances=3
-            --timeout=300
-          env_vars: |
-            LLM_PROVIDER=auto
-            GEMINI_MODEL=gemini-3.8-flash
-            OPENAI_MODEL=gpt-4o-mini
-            ANTHROPIC_MODEL=claude-3-5-sonnet-latest
-            CHASEZERO_DB_PATH=/tmp/chasezero.db
-            GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
-            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-            ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
+          version: ">= 460.0.0"
 
-      - name: Show Live Cloud Run URL
+      # Step 3: Configure Cloud SDK Project & Docker Authentication
+      - name: Configure Cloud SDK & Docker
         run: |
-          echo "ChaseZero deployed at: ${{ steps.deploy.outputs.url }}"
+          PROJECT_ID="${{ steps.auth.outputs.project_id }}"
+          echo "Authenticated project: ${PROJECT_ID}"
+          gcloud config set project "${PROJECT_ID}" --quiet
+          echo "Ensuring Artifact Registry repository exists in ${{ env.GCP_REGION }}..."
+          gcloud artifacts repositories create "${{ env.ARTIFACT_REPO }}" \
+            --repository-format=docker \
+            --location="${{ env.GCP_REGION }}" \
+            --description="Docker repository for Project Northgate" \
+            --project="${PROJECT_ID}" \
+            --quiet || echo "Repository ${{ env.ARTIFACT_REPO }} already exists or is ready."
+          gcloud auth configure-docker "${{ env.GCP_REGION }}-docker.pkg.dev" --quiet
+
+      # Step 4: Build & Push Unified ChaseZero Docker Image
+      - name: Build & Push Docker Image
+        run: |
+          PROJECT_ID="${{ steps.auth.outputs.project_id }}"
+          IMAGE_TAG="${{ env.GCP_REGION }}-docker.pkg.dev/${PROJECT_ID}/${{ env.ARTIFACT_REPO }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          LATEST_TAG="${{ env.GCP_REGION }}-docker.pkg.dev/${PROJECT_ID}/${{ env.ARTIFACT_REPO }}/${{ env.SERVICE_NAME }}:latest"
+          echo "Building image: ${IMAGE_TAG}"
+          docker build --platform linux/amd64 -t "${IMAGE_TAG}" -t "${LATEST_TAG}" .
+          docker push "${IMAGE_TAG}"
+          docker push "${LATEST_TAG}"
+
+      # Step 5: Deploy Unified Service to Cloud Run
+      - name: Deploy ChaseZero to Cloud Run
+        id: deploy-service
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          PROJECT_ID="${{ steps.auth.outputs.project_id }}"
+          IMAGE_TAG="${{ env.GCP_REGION }}-docker.pkg.dev/${PROJECT_ID}/${{ env.ARTIFACT_REPO }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          ENV_VARS="ENVIRONMENT=production,LLM_PROVIDER=auto,GEMINI_MODEL=gemini-3.8-flash,CHASEZERO_DB_PATH=/tmp/chasezero.db"
+          if [ -n "${GOOGLE_API_KEY:-}" ]; then
+            ENV_VARS="${ENV_VARS},GOOGLE_API_KEY=${GOOGLE_API_KEY}"
+          fi
+          if [ -n "${OPENAI_API_KEY:-}" ]; then
+            ENV_VARS="${ENV_VARS},OPENAI_API_KEY=${OPENAI_API_KEY}"
+          fi
+          if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+            ENV_VARS="${ENV_VARS},ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}"
+          fi
+          gcloud run deploy "${{ env.SERVICE_NAME }}" \
+            --image "${IMAGE_TAG}" \
+            --region "${{ env.GCP_REGION }}" \
+            --project "${PROJECT_ID}" \
+            --platform managed \
+            --allow-unauthenticated \
+            --port 8080 \
+            --memory 1Gi \
+            --cpu 1 \
+            --min-instances 0 \
+            --max-instances 5 \
+            --quiet \
+            --set-env-vars "${ENV_VARS}"
+          SERVICE_URL=$(gcloud run services describe "${{ env.SERVICE_NAME }}" --region "${{ env.GCP_REGION }}" --project "${PROJECT_ID}" --format "value(status.url)")
+          echo "SERVICE_URL=${SERVICE_URL}" >> "${GITHUB_ENV}"
+          echo "service_url=${SERVICE_URL}" >> "${GITHUB_OUTPUT}"
+
+      # Step 6: Post Deployment Summary to GitHub Actions Job
+      - name: Deployment Summary
+        run: |
+          echo "### Project Northgate — ChaseZero Deployed to Google Cloud Run" >> "${GITHUB_STEP_SUMMARY}"
+          echo "" >> "${GITHUB_STEP_SUMMARY}"
+          echo "| Service | Region | Cloud Run Endpoint |" >> "${GITHUB_STEP_SUMMARY}"
+          echo "| :--- | :--- | :--- |" >> "${GITHUB_STEP_SUMMARY}"
+          echo "| **ChaseZero UI** | ${{ env.GCP_REGION }} | [${{ env.SERVICE_URL }}](${{ env.SERVICE_URL }}) |" >> "${GITHUB_STEP_SUMMARY}"
+          echo "| **FastAPI Swagger Docs** | ${{ env.GCP_REGION }} | [${{ env.SERVICE_URL }}/docs](${{ env.SERVICE_URL }}/docs) |" >> "${GITHUB_STEP_SUMMARY}"

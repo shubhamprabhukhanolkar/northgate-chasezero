@@ -35,8 +35,8 @@ This file captures the complete architecture, verified state, GCP discovery resu
   - `views/ExecutiveDashboard.tsx`
 - **Cloud & CI/CD**:
   - `Dockerfile`, `.dockerignore`, `.gcloudignore`
-  - `.github/workflows/deploy-cloudrun.yml` (CI tests + frontend build -> Artifact Registry push -> Cloud Run deploy via Workload Identity Federation)
-  - `scripts/setup-gcp-cicd.ps1`, `scripts/setup-gcp-cicd.sh`
+  - `.github/workflows/deploy-cloudrun.yml` (CI tests + frontend build -> Artifact Registry `northgate-repo` in `asia-south1` -> Cloud Run deploy `northgate-chasezero` via `GCP_SA_KEY` + `$GITHUB_STEP_SUMMARY`)
+  - `scripts/setup-gcp-cicd.ps1`, `scripts/setup-gcp-cicd.sh` (alternative Workload Identity Federation bootstrap scripts)
   - `DEPLOYMENT.md`
 
 ---
@@ -71,8 +71,5 @@ This file captures the complete architecture, verified state, GCP discovery resu
    Double-click `ChaseZero.bat` (or run `.\ChaseZero.bat` in PowerShell).
 3. **Deploy to Google Cloud Run & Enable GitHub Actions CI/CD**:
    - Install Google Cloud CLI (`gcloud`) and run `gcloud auth login`.
-   - Ask your Antigravity session (after reading this `CONTEXT.md`) to set project `slabspro-slabsuser37`, enable `run.googleapis.com`, `cloudbuild.googleapis.com`, and `artifactregistry.googleapis.com`, and run `scripts/setup-gcp-cicd.ps1` — or run:
-     ```powershell
-     .\scripts\setup-gcp-cicd.ps1 -ProjectId "slabspro-slabsuser37" -GitHubRepo "<GITHUB_OWNER>/<REPO_NAME>" -DeployNow
-     ```
-   - Ensure GitHub Actions Variables (`GCP_PROJECT_ID`, `GCP_REGION`) and Secrets (`GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_SERVICE_ACCOUNT`, and `GOOGLE_API_KEY`) are configured in GitHub before pushing to `main`.
+   - Default workflow targets region `asia-south1`, Artifact Registry repository `northgate-repo`, and Cloud Run service `northgate-chasezero` on `slabspro-slabsuser37` (once `run.googleapis.com`, `cloudbuild.googleapis.com`, and `artifactregistry.googleapis.com` are enabled).
+   - Either deploy directly via `gcloud run deploy northgate-chasezero --source . --region asia-south1 --project slabspro-slabsuser37` (see `DEPLOYMENT.md`), or configure GitHub Actions Secret `GCP_SA_KEY` (and optional `GOOGLE_API_KEY` / `GCP_REGION`) so pushes to `main` deploy automatically.
